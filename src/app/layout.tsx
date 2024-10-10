@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import "./globals.css";
+import Provider from "./lib/Provider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,11 +15,10 @@ export default function RootLayout({
 }>) {
   return (
     <html suppressHydrationWarning lang="en">
-      <body
-        suppressHydrationWarning={true}
-        className={`antialiased max-w-[1400px] mx-auto`}
-      >
-        {children}
+      <body suppressHydrationWarning={true} className={`antialiased`}>
+        <Provider>
+          <div className=" max-w-[1400px] mx-auto">{children}</div>
+        </Provider>
       </body>
     </html>
   );
